@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rust Vector Generator</title>
+    <style>
+      #app {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Rust Vector Generator</h1>
+      <p>
+        Turn <code>[[1,2],[3,4]]</code> to
+        <code>vec![vec![1,2],vec![3,4]]</code>.
+      </p>
+      <textarea
+        id="text"
+        cols="80"
+        rows="14"
+        placeholder="[[1,2,3],[4,5,6],[7,8,9]]"
+      >
+[[1,2,3],[4,5,6],[7,8,9]]</textarea
+      >
+      <br />
+      <button id="btn">Rustify</button>
+    </div>
+    <script>
+      document.querySelector("#btn").addEventListener("click", () => {
+        document.querySelector("#text").value = document
+          .querySelector("#text")
+          .value.replace(/vec!\[/g, "\u9000")
+          .replace(/\[/g, "vec![")
+          .replace(/\u9000/g, "vec![");
+      });
+    </script>
+  </body>
+</html>
